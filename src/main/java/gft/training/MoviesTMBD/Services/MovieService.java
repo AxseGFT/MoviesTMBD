@@ -27,12 +27,12 @@ public class MovieService {
 	}
 	
 	@SuppressWarnings("unchecked")
-	public HashMap<String, Object> getMovie(String id) {
+	public HashMap<String, Object> getMovie(String movieid) {
 		
 		HashMap<String, Object> x = webClient.get()
-				.uri(UriBuilder -> UriBuilder.path("/movie/{movie_id}")
-						.queryParam("api_key", "")
-						.build())
+				.uri(UriBuilder -> UriBuilder.path("/movie/{movieid}")
+						.queryParam("api_key", api_key)
+						.build(movieid))
 				.retrieve()
 				.bodyToMono(HashMap.class)
 				.block();

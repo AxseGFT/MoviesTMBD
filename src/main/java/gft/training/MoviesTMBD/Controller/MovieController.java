@@ -34,11 +34,11 @@ public class MovieController {
 	@GetMapping ("/movie/{movieid}")
 	public Object getMovie (
 	        @AuthenticationPrincipal UserDetails user ,
-	        @PathVariable Integer movie_id
+	        @PathVariable Integer movieid
 			) {
-		UserMovie userMovie = userMovieRepository.findByUsernameAndMovie(user.getUsername(), movie_id).orElse(null);
-		HashMap<String, Object> movie = movieService.getMovie(movie_id.toString());
-		movie.put("Hello", "World");
+		UserMovie userMovie = userMovieRepository.findByUsernameAndMovie(user.getUsername(), movieid.toString()).orElse(null);
+		HashMap<String, Object> movie = movieService.getMovie(movieid.toString());
+		
 		if(userMovie != null) {
 			movie.put("favorite", userMovie.getFavorite());
 			movie.put("personal_rating", userMovie.getPersonal_rating());
