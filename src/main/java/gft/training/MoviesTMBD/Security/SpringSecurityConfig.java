@@ -1,4 +1,4 @@
-package gft.vtraining.MoviesTMBD.Security;
+package gft.training.MoviesTMBD.Security;
 
 import javax.sql.DataSource;
 
