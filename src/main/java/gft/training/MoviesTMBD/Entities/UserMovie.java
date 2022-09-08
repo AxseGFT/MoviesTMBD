@@ -1,28 +1,27 @@
 package gft.training.MoviesTMBD.Entities;
 
-import javax.persistence.Entity;
-import javax.persistence.Table;
 import javax.persistence.*;
 
 import lombok.*;
 import lombok.experimental.Accessors;
 
 
-@Entity
-@Table(name = "user_movie")
-public class UserMovie {
 
-	@Id
-	@Column(name = "id", nullable = false)
-	@GeneratedValue(strategy = GenerationType.AUTO)
-	private Long id;
-	String username;
-	String movie;
-	Boolean favorite;
-	Integer personal_rating;
-	String notes;
-	
-	public UserMovie(Long id, String username, String movie, Boolean favorite, Integer personal_rating, String notes) {
+@Entity
+@Table(name="user_movie")
+public class UserMovie {
+    @Id
+    @Column(name="movieid",nullable = false)
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private Integer id;
+    String username;
+    String movie;
+    Boolean favorite;
+    Integer personal_rating;
+    String notes;
+    
+	public UserMovie(Integer id, String username, String movie, Boolean favorite, Integer personal_rating,
+			String notes) {
 		super();
 		this.id = id;
 		this.username = username;
@@ -31,16 +30,16 @@ public class UserMovie {
 		this.personal_rating = personal_rating;
 		this.notes = notes;
 	}
-
+	
 	public UserMovie() {
 		super();
 	}
 
-	public Long getId() {
+	public Integer getId() {
 		return id;
 	}
 
-	public void setId(Long id) {
+	public void setId(Integer id) {
 		this.id = id;
 	}
 
@@ -83,14 +82,8 @@ public class UserMovie {
 	public void setNotes(String notes) {
 		this.notes = notes;
 	}
-	
-	
-	
-	
-	
-	
-}
 
+}
 
 
 
